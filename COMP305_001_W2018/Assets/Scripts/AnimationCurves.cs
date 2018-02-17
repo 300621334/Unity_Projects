@@ -6,8 +6,10 @@ using UnityEngine;
 public class AnimationCurves : MonoBehaviour  {
 
 	public AnimationCurve curves;
-	public float startX, startY, endX, endY , duration, timeOfClick;
+	public float startX, startY, endX, endY , repeatEvery, speed, curveSelected;
+	public List<AnimationCurve> curveList;
 
+	private float timeOfClick;
 	private Vector3 startPos, endPos;
 	private bool startMoving = false;
 
@@ -33,6 +35,7 @@ public class AnimationCurves : MonoBehaviour  {
 		transform.position = startPos;//bring to startPos
 		gameObject.SetActive(true);
 		Debug.Log (startMoving);
+		//curveList.Capacity =5 ;
 	}
 
 	// Update is called once per frame
@@ -40,8 +43,10 @@ public class AnimationCurves : MonoBehaviour  {
 		if(startMoving)
 		{
 			float time = Time.time - timeOfClick;
-			//float t = time % duration;
-			transform.position = Vector3.Lerp (startPos, endPos, curves.Evaluate(time % duration));//when duration=0 returns startPos, when=1 returns endPos
+			//float t = time % repeatEvery;
+			//3rd arg is fraction-complete
+			transform.position = Vector3.Lerp (startPos, endPos, curves.Evaluate(time % repeatEvery) * speed);//when repeatEvery=0 returns startPos, when=1 returns endPos
+
 
 		}
 
