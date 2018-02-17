@@ -10,6 +10,7 @@ public class ballBounce : MonoBehaviour {
 	private Vector3 position;
 	private Animator animation;
 
+	//public LayerMask layerMask;
 	public float speedBall = 5;
 
 	// Use this for initialization

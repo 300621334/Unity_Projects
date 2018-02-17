@@ -10,6 +10,7 @@ public class JumpBoy : MonoBehaviour {
 	private Vector3 position;
 	private Animator animation;
 
+	//public LayerMask layerMask;
 	public float speedBoy = 5;
 
 	// Use this for initialization
