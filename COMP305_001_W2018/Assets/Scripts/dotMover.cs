@@ -15,6 +15,7 @@ public class dotMover : MonoBehaviour{
 	bool move, isMouseOverUIelement;
 	List<Vector3> coordsList, copyList;
 	Rigidbody rb;
+	bool isClkAble = true;//so that MoveDot btn CANNOT be clked twice. Else coroutine fired >1 & mess up
 
 
 	// Use this for initialization
@@ -85,8 +86,7 @@ public class dotMover : MonoBehaviour{
 
 	public void btnClk_moveDot()
 	{
-		
-		StartCoroutine(moveDot());
+				if(isClkAble)StartCoroutine(moveDot());//if btn already clked, then don't allow 2nd clk unless coroutine is done
 
 		Debug.Log ("ALL coords" + coordsList.ToString());
 		//var clones = GameObject.FindGameObjectsWithTag ("yellowPoint");
@@ -96,7 +96,8 @@ public class dotMover : MonoBehaviour{
 
 	IEnumerator moveDot()
 	{
-		
+		isClkAble = false;//btn CANNOT be clked twice
+
 		foreach (var pos in copyList.GetRange(0, copyList.Count))//create a copy of list
 		{
 			//targetOnBtnClk = point.transform.position;
@@ -110,6 +111,7 @@ public class dotMover : MonoBehaviour{
 			//transform.position = pos;//works
 			//yield return new WaitForSeconds (waitAftEaMove);
 		}
+		isClkAble = true;//resume clickbility
 	}
 
 	public void btnClk_deleteAllPoints()
