@@ -19,7 +19,7 @@ public class DestroyByShot : MonoBehaviour {
 			Instantiate (playerExplodes, other.transform.position, other.transform.rotation);
 		}
 		//Debug.Log (other.name); //to see which obj caused asteroid to disappear as soon as game started
-		Destroy (other.gameObject); //wipe out the shot
+		Destroy (other.gameObject); //wipe out the shot. or even player.
 		Destroy (gameObject);//destroy asteroid itself
 	}
 }

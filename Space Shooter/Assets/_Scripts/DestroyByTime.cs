@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//For Explosion to disappear after a time
 public class DestroyByTime : MonoBehaviour {
 
 	public float lifeTime;

@@ -36,8 +36,8 @@ public class GameController : MonoBehaviour {
 					spawnValues.z
 				); 
 			
-			Quaternion spawnRotation = Quaternion.identity;//=no rotation //new Quaternion();//pos is a v3 value, while rotation is a Quaternion value
-			Instantiate (hazards,spawnPosition,  spawnRotation);
+			Quaternion spawnRotation = Quaternion.identity;//=no rotation //new Vector3();//pos is a v3 value, while rotation is a Quaternion value
+                Instantiate (hazards,spawnPosition,  spawnRotation);
 			
 			yield return new WaitForSeconds (spawnWait);
 			}//for loop ends
